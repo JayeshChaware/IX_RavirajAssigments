@@ -20,7 +20,7 @@ namespace _9_dec_assignment
 
             List<Student> students = new List<Student>();
             Random random = new Random();
-            for (int count = 0; count < studentCount; count++)
+            for (int count = 0; count < studentCount; count++)// adding students
             {
                 Student stud = new Student()
                 {
@@ -33,9 +33,9 @@ namespace _9_dec_assignment
             }
             List<Batch> Batches = new List<Batch>();
             int countStud = 0;
-            for (int count = 0; count < batchCount; count++)
+            for (int count = 0; count < batchCount; count++)//adding batches
             {
-                List<Student> studentBatch = new List<Student>();
+                List<Student> studentBatch = new List<Student>();//adding student to a temp list so tht can be directly added to batch list of batch class
                 for (int studCount = 0; studCount < 4; studCount++)
                 {
                     studentBatch.Add(students[countStud]);
@@ -43,7 +43,7 @@ namespace _9_dec_assignment
                 }
                 try
                 {
-                    Batch batch = new Batch()
+                    Batch batch = new Batch() //adding students and associated batches to batch list
                     {
                         Id = count + 1,
                         Name = $"Batch_{(char)(count + 65)}",
@@ -60,12 +60,12 @@ namespace _9_dec_assignment
                 }
                 
             }
-            foreach (var batch in Batches)
+            foreach (var batch in Batches)//printing all students 
             {
                 Batch.Print(batch);
                 Console.WriteLine();
             }
-            Batch.GetStudent(Batches, 3, 8);
+            Batch.GetStudent(Batches, 3, 8);//swaping student with id 3 and 8
             foreach (var batch in Batches)
             {
                 Batch.Print(batch);
@@ -85,7 +85,7 @@ namespace _9_dec_assignment
             public int Id { get; set; }
             public string Name { get; set; }
             public List<Student> student { get; set; }
-            public static void Print(Batch batch)
+            public static void Print(Batch batch)//print function for individual Batch
             {
                 try
                 {
@@ -99,7 +99,7 @@ namespace _9_dec_assignment
                     Console.WriteLine(e);
                 }
             }
-            public static void GetStudent(List<Batch> allbatch, int studentIdOne, int studentIdTwo)
+            public static void GetStudent(List<Batch> allbatch, int studentIdOne, int studentIdTwo)//swap function to swap students
             {
                 int batchOne =0, studentOne =0, batchTwo=0, studentTwo=0;   
                 for (int i = 0; i < allbatch.Count; i++)
